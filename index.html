@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+   <script>
+        function addDiv(resIn){
+
+            const container = document.createElement('div');
+            container.className = "container"
+
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = resIn.title;
+            container.appendChild(titleElement);
+
+            const questionElement = document.createElement('p');
+            questionElement.textContent = resIn.question;
+            container.appendChild(questionElement);
+
+
+            document.body.appendChild(container);
+
+        }
+        const list = []
+        for(var i = 0; i < 3; i++){
+            var res = printAll();
+            while(list.includes(res.question)){
+                res = printAll();
+            }
+            addDiv(res)
+        }
+   </script> 
+</body>
+</html>
