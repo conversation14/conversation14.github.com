@@ -2,113 +2,147 @@ function printAll(){
     const json = `
 [
   {
-    "title": "☕️ Alltag",
+    "title": "☕️ Wie verbringst du deinen Alltag?",
     "questions": [
-      "Wie war dein Tag bisher?",
-      "Was steht bei dir heute noch an?",
-      "Gibt’s etwas, worauf du dich heute noch freust?",
-      "Wie sieht dein typischer Morgen/Abend aus?",
-      "Was ist dein persönlicher Energie-Booster am Tag?",
-      "Hast du heute schon was Neues erlebt oder gelernt?",
-      "Gibt’s etwas, das du jeden Tag machst, ohne groß darüber nachzudenken?",
-      "Wann war dein letzter richtig fauler Tag?",
-      "Hast du manchmal das Gefühl, die Zeit vergeht zu schnell?",
-      "Wie oft brauchst du „Zeit für dich“?"
+      "Wie sieht ein typischer Tag bei dir aus?",
+      "Was war heute das Schönste für dich?",
+      "Hast du heute schon was erlebt, das dich überrascht hat?",
+      "Was machst du morgens als Erstes, wenn du aufwachst?",
+      "Gibt es einen Moment am Tag, auf den du dich besonders freust?",
+      "Was machst du, um abends zur Ruhe zu kommen?",
+      "Wie startest du am liebsten in die Woche?",
+      "Was hilft dir, durch stressige Tage zu kommen?",
+      "Hast du ein Ritual, das deinen Tag besser macht?",
+      "Wie gehst du mit unerwarteten Unterbrechungen im Alltag um?",
+      "Was würdest du an deinem Tagesablauf gern ändern?",
+      "Wie oft gönnst du dir bewusst eine Pause?",
+      "Wann hattest du zuletzt einen richtig entspannten Tag?",
+      "Hast du eine Gewohnheit, auf die du stolz bist?",
+      "Was war heute dein kleiner Glücksmoment?"
     ]
   },
   {
-    "title": "🍝 Essen & Trinken",
+    "title": "🍽️ Was isst du am liebsten?",
     "questions": [
-      "Was ist dein absolutes Comfort-Food?",
-      "Gibt es ein Gericht, das du perfekt zubereiten kannst?",
-      "Bist du eher Team Frühstück, Mittag oder Abendessen?",
-      "Isst du lieber herzhaft oder süß zum Frühstück?",
-      "Gibt es ein Essen, das du gar nicht magst?",
-      "Wie stehst du zu vegan/vegetarisch – schon ausprobiert?",
-      "Magst du Street Food oder lieber schick essen gehen?",
-      "Gibt es ein Essen, das dich an einen Urlaub erinnert?",
-      "Welche Snacks dürfen bei dir zu einem Filmabend nicht fehlen?",
-      "Kaffee: schwarz, mit Milch, mit Hafermilch – oder gar nicht?"
+      "Was ist dein absolutes Lieblingsgericht?",
+      "Worauf hast du gerade richtig Appetit?",
+      "Gibt es ein Gericht, das du perfekt kochen kannst?",
+      "Was ist deine erste Wahl bei einem Restaurantbesuch?",
+      "Wie stehst du zu scharfem Essen?",
+      "Was darf in deinem Kühlschrank nie fehlen?",
+      "Welches Essen erinnert dich an deine Kindheit?",
+      "Isst du lieber süß oder herzhaft?",
+      "Bist du eher experimentierfreudig oder treu deinen Lieblingsgerichten?",
+      "Hast du ein Lieblingsgetränk für den Sommer oder Winter?",
+      "Kochst du gerne für andere?",
+      "Gibt es ein Essen, das du nie wieder probieren würdest?",
+      "Was ist dein ultimativer Mitternachtssnack?",
+      "Gibt es ein Gericht aus einem anderen Land, das du gerne nachkochen würdest?",
+      "Welches Dessert kannst du nie ablehnen?"
     ]
   },
   {
-    "title": "📱 Medien & Unterhaltung",
+    "title": "📺 Was schaust, liest oder hörst du gerade?",
     "questions": [
-      "Was ist deine Lieblingsserie aller Zeiten?",
-      "Welcher Film hat dich emotional richtig mitgenommen?",
-      "Gibt es eine Serie oder einen Film, den alle lieben – außer dir?",
-      "Wie oft schaust du Nachrichten oder informierst dich online?",
-      "Welche YouTube-Kanäle kannst du empfehlen?",
-      "Was hörst du beim Putzen oder Kochen – Musik, Podcast, gar nichts?",
-      "Welche Musikrichtung beschreibt deinen Musikgeschmack am besten?",
-      "Hörst du Musik eher unterwegs oder zuhause?",
-      "Gibt es ein Buch, das dein Denken verändert hat?",
-      "Liest du lieber E-Books, Hörbücher oder klassisch auf Papier?"
+      "Welche Serie hat dich zuletzt richtig gepackt?",
+      "Was war der letzte Film, der dich berührt hat?",
+      "Welches Buch liegt aktuell auf deinem Nachttisch?",
+      "Hörst du Podcasts? Wenn ja, welche kannst du empfehlen?",
+      "Welche Musik hilft dir beim Abschalten?",
+      "Welche Doku oder Reportage fandest du richtig spannend?",
+      "Gibt es ein Genre, das du immer wieder schaust oder liest?",
+      "Welche Kinderserie mochtest du früher besonders?",
+      "Was war dein Lieblingsfilm als Teenager?",
+      "Liest du eher digital oder auf Papier?",
+      "Welche Serie könntest du immer wieder schauen?",
+      "Was hörst du beim Kochen oder Putzen?",
+      "Welches Buch würdest du jedem empfehlen?",
+      "Bist du eher Team Hörbuch oder still lesen?",
+      "Was war dein letzter spontaner Filmabend?"
     ]
   },
   {
-    "title": "🏖️ Freizeit & Hobbys",
+    "title": "🎨 Was machst du gerne in deiner Freizeit?",
     "questions": [
-      "Was würdest du tun, wenn du plötzlich eine Woche frei hättest?",
-      "Gibt es ein Hobby, das du irgendwann mal aufgeben musstest?",
-      "Was war dein ungewöhnlichstes Hobby?",
-      "Gibt es etwas, das du regelmäßig machst, um runterzukommen?",
-      "Bist du Team „lange wach bleiben“ oder „früh raus und was erleben“?",
-      "Was tust du, wenn dir langweilig ist?",
-      "Bastelst, malst oder schreibst du manchmal?",
-      "Gibt es etwas, das du immer schon mal ausprobieren wolltest, dich aber nie getraut hast?",
-      "Wie wichtig ist dir Freizeit im Alltag?",
-      "Gibt es einen Skill, den du dir selbst beigebracht hast?"
+      "Was macht dir in deiner Freizeit am meisten Spaß?",
+      "Hast du ein Hobby, das du anderen empfehlen würdest?",
+      "Was würdest du gern mal lernen, wenn du die Zeit hättest?",
+      "Wie verbringst du einen perfekten freien Nachmittag?",
+      "Was machst du, wenn dir langweilig ist?",
+      "Hast du ein kreatives Projekt, an dem du gerade arbeitest?",
+      "Wann warst du das letzte Mal richtig im Flow?",
+      "Welche Freizeitaktivität bringt dich zum Lächeln?",
+      "Gibt es etwas, das du immer wieder tust, einfach weil es dir guttut?",
+      "Welche Sportart oder Bewegung tut dir besonders gut?",
+      "Was hast du zuletzt Neues ausprobiert?",
+      "Wie entspannst du dich nach einer langen Woche?",
+      "Was inspiriert dich in deiner Freizeit?",
+      "Was machst du nur für dich selbst, ohne Ziel oder Zweck?",
+      "Gibt es ein Hobby, das du gerne wieder aufleben lassen würdest?"
     ]
   },
   {
-    "title": "🚶‍♂️ Tägliches Leben & Routinen",
+    "title": "🗓️ Wie strukturierst du deinen Tag?",
     "questions": [
-      "Wie organisierst du deinen Tag: To-do-Listen, Kalender oder einfach los?",
-      "Wie oft checkst du am Tag dein Handy?",
-      "Gibt es ein Gerät oder eine App, ohne die du nicht leben könntest?",
-      "Wie gehst du mit Stress um?",
-      "Was nervt dich im Alltag am meisten?",
-      "Welches kleine Alltagsproblem würdest du gerne „wegzaubern“?",
-      "Was bedeutet für dich „ein produktiver Tag“?",
-      "Wie gestaltest du deine Mittagspause?",
-      "Wie oft gehst du einkaufen – planvoll oder spontan?",
-      "Was ist dein liebster Alltagsluxus?"
+      "Wie organisierst du deine Aufgaben im Alltag?",
+      "Benutzt du Kalender, To-do-Apps oder eher dein Gedächtnis?",
+      "Was hilft dir, produktiv zu bleiben?",
+      "Wie gehst du mit Aufschieberitis um?",
+      "Was motiviert dich morgens aufzustehen?",
+      "Wie planst du deinen Wochenstart?",
+      "Was ist dein Lieblingsmoment an einem normalen Tag?",
+      "Wie schaltest du nach der Arbeit oder Schule ab?",
+      "Wie gehst du mit unerwartetem Stress um?",
+      "Gibt es einen Tagesrhythmus, der besonders gut für dich funktioniert?",
+      "Wie bringst du Erholung und Verpflichtungen ins Gleichgewicht?",
+      "Wie bereitest du dich mental auf einen vollen Tag vor?",
+      "Gibt es eine kleine Gewohnheit, die deinen Tag verbessert?",
+      "Was tust du an einem chaotischen Tag, um wieder Struktur reinzubringen?",
+      "Wann fühlst du dich am produktivsten – morgens, mittags oder abends?"
     ]
   },
   {
-    "title": "🧳 Reisen & Orte",
+    "title": "✈️ Wohin möchtest du gerne reisen?",
     "questions": [
-      "Was war dein aufregendstes Reiseerlebnis?",
-      "Bist du eher der Pauschalreise- oder Abenteuer-Typ?",
-      "Welche Sprache würdest du gerne fließend sprechen – fürs Reisen?",
-      "Was darf auf keinen Fall in deinem Gepäck fehlen?",
-      "Gibt es einen Ort, der dich richtig enttäuscht hat?",
-      "Hast du Lieblingsorte in deiner eigenen Stadt oder Region?",
-      "Magst du es, neue Leute auf Reisen kennenzulernen?",
-      "Gibt es ein Reiseziel, das du bewusst meidest?",
-      "Wie planst du Reisen – durchorganisiert oder spontan?",
-      "Reist du lieber allein oder in Gesellschaft?"
+      "Was war dein schönstes Reiseerlebnis bisher?",
+      "Welches Land möchtest du unbedingt mal bereisen?",
+      "Reist du lieber ans Meer, in die Berge oder in Städte?",
+      "Wie spontan bist du bei Reisen?",
+      "Was darf in deinem Koffer nie fehlen?",
+      "Magst du Roadtrips?",
+      "Welche Stadt hat dich überrascht – im positiven oder negativen Sinn?",
+      "Gibt es ein Reiseziel, das dich nachhaltig beeindruckt hat?",
+      "Würdest du gerne mal allein verreisen?",
+      "Wie sieht für dich ein perfekter Urlaubstag aus?",
+      "Was war dein größtes Abenteuer auf Reisen?",
+      "Hast du Lieblingsorte, zu denen du immer wieder zurückkehren würdest?",
+      "Welche Reise hat deine Sicht auf die Welt verändert?",
+      "Was bedeutet für dich echtes Fernweh?",
+      "Planst du Reisen lieber durch oder lässt du dich treiben?"
     ]
   },
   {
-    "title": "🐶 Tiere & Natur",
+    "title": "🐾 Hast du eine Verbindung zur Natur oder zu Tieren?",
     "questions": [
       "Hattest oder hast du ein Haustier?",
-      "Bist du eher Hunde- oder Katzenmensch – oder beides?",
-      "Gibt es ein Tier, das du faszinierend findest, aber auch ein bisschen unheimlich?",
-      "Was würdest du als erstes tun, wenn du einen Bauernhof hättest?",
-      "Warst du schon mal in einem Wildpark oder auf Safari?",
-      "Gibt es ein Tier, das du gerne als Haustier hättest, wenn alles möglich wäre?",
-      "Hast du einen Lieblingsbaum oder eine Lieblingsblume?",
-      "Wie oft gehst du spazieren, einfach nur um draußen zu sein?",
-      "Bist du gerne im Wald oder eher am Wasser?",
-      "Gibt es einen Naturort, der dich richtig beruhigt?"
+      "Bist du eher Katzen- oder Hundemensch – oder beides nicht?",
+      "Gibt es ein Tier, das du besonders faszinierend findest?",
+      "Wie oft bist du in der Natur unterwegs?",
+      "Was gibt dir Energie – Wald, Meer, Berge oder Wiese?",
+      "Wie oft brauchst du Natur, um dich wohlzufühlen?",
+      "Was war deine schönste Begegnung mit einem Tier?",
+      "Würdest du gerne auf dem Land leben?",
+      "Gibt es ein Tier, das du gerne einmal in freier Wildbahn sehen würdest?",
+      "Wie gehst du mit Tieren um, die du nicht kennst?",
+      "Hast du schon mal gezeltet oder draußen übernachtet?",
+      "Welche Jahreszeit genießt du draußen am meisten?",
+      "Gibt es einen Naturort, der dir besonders viel bedeutet?",
+      "Was wäre dein Traumhaustier, wenn alles möglich wäre?",
+      "Wie achtest du auf Umwelt und Natur im Alltag?"
     ]
   }
 ]
 `
-    
     const obj = JSON.parse(json);
     const objLen = (obj.length) * Math.random()
     const objElem = obj[Math.floor(objLen)]
