@@ -27,14 +27,24 @@
             document.body.appendChild(container);
 
         }
-        const list = []
-        for(var i = 0; i < 3; i++){
-            var res = printAll();
-            while(list.includes(res.question)){
-                res = printAll();
+
+        function renderContent(){
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => container.remove());
+
+
+            const list = []
+            for(var i = 0; i < 3; i++){
+                var res = printAll();
+                while(list.includes(res.question)){
+                    res = printAll();
+                }
+                addDiv(res)
             }
-            addDiv(res)
         }
+        
+        renderContent()
    </script> 
+   <button onclick="renderContent()" class="reload">refresh</button>
 </body>
 </html>

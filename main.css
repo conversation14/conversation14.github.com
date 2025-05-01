@@ -1,33 +1,53 @@
 p {
-    font-size: 1em; /* Slightly larger font for better readability */
-    margin: 10px 0; /* Add spacing between paragraphs */
-    font-weight: normal; /* Adjust font weight for better balance */
+    font-size: 1em;
+    margin: 10px 0;
+    font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
-    color: #333; /* Darker text for better contrast */
+    color: #333;
 }
 
 h1 {
-    font-size: 1.5em; /* Larger font size for titles */
-    margin-bottom: 15px; /* Add spacing below the title */
+    font-size: 1.5em;
+    margin-bottom: 15px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    color: #222; /* Slightly darker title color */
-    text-align: center; /* Center-align the title */
+    color: #222;
+    text-align: center;
 }
 
 body {
-    background-color: #F1F3C2; /* Softer background color */
+    background-color: #F1F3C2;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.reload {
+    background-color: #E8F5C8;
+    border-radius: 15px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    padding: 15px;
+}
+
 .container {
-    padding: 20px; /* Increase padding for better spacing */
-    background-color: #E8F5C8; /* Softer green for better aesthetics */
-    width: 80%; /* Slightly narrower width for better focus */
-    margin: 20px auto; /* Center the container and add vertical spacing */
-    border-radius: 15px; /* Slightly smaller border radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-    text-align: left; /* Align text to the left for better readability */
+    padding: 20px;
+    background-color: #E8F5C8;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    text-align: left;
 }
