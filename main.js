@@ -1,6 +1,110 @@
 function printAll(){
     const json = `
-[
+    [
+  {
+    "title": "🎉 Was macht dir Spaß im Leben?",
+    "questions": [
+      "Wann hast du zuletzt so richtig gelacht?",
+      "Was war dieses Jahr dein schönster Moment bisher?",
+      "Welche kleinen Dinge machen dich sofort glücklich?",
+      "Hast du einen Insider-Witz mit Freunden?",
+      "Gibt es etwas, das dich immer in gute Laune versetzt?",
+      "Wann hast du zuletzt etwas zum ersten Mal gemacht?",
+      "Was ist für dich ein perfekter Samstagabend?",
+      "Welche Aktivität gibt dir das Gefühl, wieder Kind zu sein?",
+      "Hast du einen Lieblingsplatz, der dich sofort entspannt?",
+      "Wann hast du dich zuletzt richtig frei gefühlt?",
+      "Gibt es ein Lied, das dich sofort zum Tanzen bringt?",
+      "Wann warst du zuletzt spontan unterwegs?",
+      "Welcher Tag war in letzter Zeit besonders unvergesslich für dich?",
+      "Gibt es ein Ritual, das dich sofort aufheitert?",
+      "Welche Aktivität macht dich immer energiegeladen?"
+    ]
+  },
+  {
+    "title": "👩‍🍳 Kochen, Essen & Genießen",
+    "questions": [
+      "Welches Gericht hast du zuletzt selbst gekocht?",
+      "Gibt es ein Familienrezept, das dir besonders am Herzen liegt?",
+      "Welche Küche aus der Welt würdest du gerne besser kennenlernen?",
+      "Was ist dein einfachstes, aber bestes Rezept?",
+      "Welche Zutat hast du immer auf Vorrat?",
+      "Hast du schon mal ein Rezept völlig improvisiert?",
+      "Welches Essen passt perfekt zu einem gemütlichen Abend?",
+      "Magst du lieber Frühstück, Mittagessen oder Abendessen?",
+      "Hast du schon mal bei jemandem etwas gegessen, das dich total überrascht hat?",
+      "Was bestellst du, wenn du absolut unschlüssig bist?",
+      "Hast du schon mal etwas gegessen, nur um jemandem zuliebe?",
+      "Was ist deine liebste Beilage zu fast allem?",
+      "Gibt es ein Essen, das du nur im Urlaub isst?",
+      "Was ist dein Lieblingsessen im Winter?",
+      "Was ist dein persönliches Wohlfühlgericht?"
+    ]
+  },
+  {
+    "title": "💬 Erinnerungen & Geschichten",
+    "questions": [
+      "Was war dein schönstes Erlebnis als Kind?",
+      "Gibt es eine Reise, die du nie vergessen wirst?",
+      "Was war das letzte Mal, dass du dich richtig überwunden hast?",
+      "Hast du eine witzige Kindheitserinnerung?",
+      "Gab es einen Moment, in dem du dich besonders mutig gefühlt hast?",
+      "Hast du schon mal jemanden aus Zufall wiedergetroffen?",
+      "Welche Begegnung hat dich nachhaltig beeindruckt?",
+      "Gab es ein Ereignis, das deine Sicht auf etwas verändert hat?",
+      "Wann warst du das letzte Mal richtig stolz auf dich?",
+      "Hast du schon mal etwas erlebt, das fast wie im Film war?",
+      "Gab es in deiner Schulzeit einen besonders schönen Moment?",
+      "Was war das letzte Mal, dass du jemandem eine Freude gemacht hast?",
+      "Hast du schon mal etwas gemacht, das niemand von dir erwartet hätte?",
+      "Gibt es einen Ort aus deiner Kindheit, den du heute noch besuchst?",
+      "Welche Geschichte erzählst du immer wieder gern?"
+    ]
+  },
+  {
+    "title": "🌍 Welt, Menschen & Gedanken",
+    "questions": [
+      "Welches aktuelle Thema beschäftigt dich gerade?",
+      "Gibt es eine Erfindung, die dein Leben erleichtert hat?",
+      "Welche kleine Sache macht die Welt für dich schöner?",
+      "Was würdest du gerne besser verstehen?",
+      "Welche Sprache würdest du gerne sprechen können?",
+      "Was findest du faszinierend an anderen Kulturen?",
+      "Wenn du einen Tag unsichtbar wärst – was würdest du tun?",
+      "Gibt es ein Land, das du gern für längere Zeit erleben würdest?",
+      "Welche Erfindung wünschst du dir für die Zukunft?",
+      "Was sollte deiner Meinung nach jeder mal im Leben erlebt haben?",
+      "Gibt es eine Sache, die du gerne an der Welt ändern würdest?",
+      "Was inspiriert dich, Neues zu lernen?",
+      "Welche Tradition aus einem anderen Land gefällt dir?",
+      "Was hat dich zuletzt so richtig zum Nachdenken gebracht?",
+      "Gibt es eine Fähigkeit, die alle Menschen haben sollten?"
+    ]
+  },
+  {
+    "title": "🏡 Zuhause & Wohlfühlen",
+    "questions": [
+      "Wie sieht dein Lieblingsplatz zu Hause aus?",
+      "Hast du eine bestimmte Ecke, in der du besonders gern liest oder entspannst?",
+      "Welche drei Dinge dürfen in deiner Wohnung nicht fehlen?",
+      "Bist du eher der Minimalist oder der Sammler?",
+      "Welche Farbe würdest du sofort an deine Wand streichen?",
+      "Was macht für dich ein gemütliches Zuhause aus?",
+      "Hast du Pflanzen? Falls ja, wie viele überleben bei dir?",
+      "Gibt es ein Möbelstück, das dir besonders wichtig ist?",
+      "Hörst du Musik, wenn du zu Hause bist?",
+      "Was ist das Erste, das du machst, wenn du heimkommst?",
+      "Hast du eine Deko, die dich an einen besonderen Moment erinnert?",
+      "Magst du lieber große offene Räume oder kleine gemütliche?",
+      "Gibt es einen Geruch, der für dich sofort 'Zuhause' bedeutet?",
+      "Welche Aussicht würdest du gerne aus deinem Fenster haben?",
+      "Wie sieht für dich ein perfekter Abend zu Hause aus?"
+    ]
+  }
+]
+`
+/*
+    [
   {
     "title": "☕️ Wie verbringst du deinen Alltag?",
     "questions": [
@@ -140,9 +244,109 @@ function printAll(){
       "Was wäre dein Traumhaustier, wenn alles möglich wäre?",
       "Wie achtest du auf Umwelt und Natur im Alltag?"
     ]
+  },
+  {
+    "title": "🎉 Was macht dir Spaß im Leben?",
+    "questions": [
+      "Wann hast du zuletzt so richtig gelacht?",
+      "Was war dieses Jahr dein schönster Moment bisher?",
+      "Welche kleinen Dinge machen dich sofort glücklich?",
+      "Hast du einen Insider-Witz mit Freunden?",
+      "Gibt es etwas, das dich immer in gute Laune versetzt?",
+      "Wann hast du zuletzt etwas zum ersten Mal gemacht?",
+      "Was ist für dich ein perfekter Samstagabend?",
+      "Welche Aktivität gibt dir das Gefühl, wieder Kind zu sein?",
+      "Hast du einen Lieblingsplatz, der dich sofort entspannt?",
+      "Wann hast du dich zuletzt richtig frei gefühlt?",
+      "Gibt es ein Lied, das dich sofort zum Tanzen bringt?",
+      "Wann warst du zuletzt spontan unterwegs?",
+      "Welcher Tag war in letzter Zeit besonders unvergesslich für dich?",
+      "Gibt es ein Ritual, das dich sofort aufheitert?",
+      "Welche Aktivität macht dich immer energiegeladen?"
+    ]
+  },
+  {
+    "title": "👩‍🍳 Kochen, Essen & Genießen",
+    "questions": [
+      "Welches Gericht hast du zuletzt selbst gekocht?",
+      "Gibt es ein Familienrezept, das dir besonders am Herzen liegt?",
+      "Welche Küche aus der Welt würdest du gerne besser kennenlernen?",
+      "Was ist dein einfachstes, aber bestes Rezept?",
+      "Welche Zutat hast du immer auf Vorrat?",
+      "Hast du schon mal ein Rezept völlig improvisiert?",
+      "Welches Essen passt perfekt zu einem gemütlichen Abend?",
+      "Magst du lieber Frühstück, Mittagessen oder Abendessen?",
+      "Hast du schon mal bei jemandem etwas gegessen, das dich total überrascht hat?",
+      "Was bestellst du, wenn du absolut unschlüssig bist?",
+      "Hast du schon mal etwas gegessen, nur um jemandem zuliebe?",
+      "Was ist deine liebste Beilage zu fast allem?",
+      "Gibt es ein Essen, das du nur im Urlaub isst?",
+      "Was ist dein Lieblingsessen im Winter?",
+      "Was ist dein persönliches Wohlfühlgericht?"
+    ]
+  },
+  {
+    "title": "💬 Erinnerungen & Geschichten",
+    "questions": [
+      "Was war dein schönstes Erlebnis als Kind?",
+      "Gibt es eine Reise, die du nie vergessen wirst?",
+      "Was war das letzte Mal, dass du dich richtig überwunden hast?",
+      "Hast du eine witzige Kindheitserinnerung?",
+      "Gab es einen Moment, in dem du dich besonders mutig gefühlt hast?",
+      "Hast du schon mal jemanden aus Zufall wiedergetroffen?",
+      "Welche Begegnung hat dich nachhaltig beeindruckt?",
+      "Gab es ein Ereignis, das deine Sicht auf etwas verändert hat?",
+      "Wann warst du das letzte Mal richtig stolz auf dich?",
+      "Hast du schon mal etwas erlebt, das fast wie im Film war?",
+      "Gab es in deiner Schulzeit einen besonders schönen Moment?",
+      "Was war das letzte Mal, dass du jemandem eine Freude gemacht hast?",
+      "Hast du schon mal etwas gemacht, das niemand von dir erwartet hätte?",
+      "Gibt es einen Ort aus deiner Kindheit, den du heute noch besuchst?",
+      "Welche Geschichte erzählst du immer wieder gern?"
+    ]
+  },
+  {
+    "title": "🌍 Welt, Menschen & Gedanken",
+    "questions": [
+      "Welches aktuelle Thema beschäftigt dich gerade?",
+      "Gibt es eine Erfindung, die dein Leben erleichtert hat?",
+      "Welche kleine Sache macht die Welt für dich schöner?",
+      "Was würdest du gerne besser verstehen?",
+      "Welche Sprache würdest du gerne sprechen können?",
+      "Was findest du faszinierend an anderen Kulturen?",
+      "Wenn du einen Tag unsichtbar wärst – was würdest du tun?",
+      "Gibt es ein Land, das du gern für längere Zeit erleben würdest?",
+      "Welche Erfindung wünschst du dir für die Zukunft?",
+      "Was sollte deiner Meinung nach jeder mal im Leben erlebt haben?",
+      "Gibt es eine Sache, die du gerne an der Welt ändern würdest?",
+      "Was inspiriert dich, Neues zu lernen?",
+      "Welche Tradition aus einem anderen Land gefällt dir?",
+      "Was hat dich zuletzt so richtig zum Nachdenken gebracht?",
+      "Gibt es eine Fähigkeit, die alle Menschen haben sollten?"
+    ]
+  },
+  {
+    "title": "🏡 Zuhause & Wohlfühlen",
+    "questions": [
+      "Wie sieht dein Lieblingsplatz zu Hause aus?",
+      "Hast du eine bestimmte Ecke, in der du besonders gern liest oder entspannst?",
+      "Welche drei Dinge dürfen in deiner Wohnung nicht fehlen?",
+      "Bist du eher der Minimalist oder der Sammler?",
+      "Welche Farbe würdest du sofort an deine Wand streichen?",
+      "Was macht für dich ein gemütliches Zuhause aus?",
+      "Hast du Pflanzen? Falls ja, wie viele überleben bei dir?",
+      "Gibt es ein Möbelstück, das dir besonders wichtig ist?",
+      "Hörst du Musik, wenn du zu Hause bist?",
+      "Was ist das Erste, das du machst, wenn du heimkommst?",
+      "Hast du eine Deko, die dich an einen besonderen Moment erinnert?",
+      "Magst du lieber große offene Räume oder kleine gemütliche?",
+      "Gibt es einen Geruch, der für dich sofort 'Zuhause' bedeutet?",
+      "Welche Aussicht würdest du gerne aus deinem Fenster haben?",
+      "Wie sieht für dich ein perfekter Abend zu Hause aus?"
+    ]
   }
 ]
-`
+*/
     const obj = JSON.parse(json);
     const objLen = (obj.length) * Math.random()
     const objElem = obj[Math.floor(objLen)]

@@ -1,53 +1,57 @@
-p {
-    font-size: 1em;
-    margin: 10px 0;
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
+body {
+    background-color: #daf0f1; /* Warmes Off-White */
+    color: #555555; /* Mittelgrau */
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #222;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #3A3A3A; /* Warmes Dunkelgrau */
     text-align: center;
 }
 
-body {
-    background-color: #F1F3C2;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.reload {
-    background-color: #E8F5C8;
-    border-radius: 15px;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
+p {
+    font-size: 1.2em;
+    color: #555555;
+    text-align: center;
     font-weight: bold;
-    color: #333;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-    padding: 15px;
 }
 
+/* Container */
 .container {
+    background-color: #cce5cf; /* Sanftes Pastell-Grau */
     padding: 20px;
-    background-color: #E8F5C8;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     width: 80%;
     margin: 20px auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, background-color 0.2s;
-    text-align: left;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.container:hover {
+    transform: translateY(-3px);
+    background-color: #a9d6bb; /* leicht dunkler beim Hover */
+}
+
+/* Squircle-Button */
+.reload {
+    background-color: #A6D6A8; /* Weiches Pastellgrün */
+    border-radius: 18px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 14px 18px;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(166, 214, 168, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.reload:hover {
+    transform: scale(1.05);
+    background-color: #C8E8C9; /* Helleres Mintgrün */
 }
