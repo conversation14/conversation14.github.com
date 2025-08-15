@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Random Q&A</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html, body {
       height: 100%;
@@ -35,6 +36,11 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      display: block;
+      flex-wrap: nowrap;
+      overflow-x: visible;
+      overflow-y: visible;
+      max-width: none;
     }
     #sidebar li {
       padding: 0.7em 1em;
@@ -45,6 +51,10 @@
       transition: background 0.15s, border-color 0.15s;
       white-space: normal;
       word-break: break-word;
+      margin: 0;
+      min-width: 0;
+      max-width: none;
+      display: block;
     }
     #sidebar li.active {
       background: #eafbe7;
@@ -113,19 +123,32 @@
     button#nextQuestionBtn:disabled {
       background: #f7d6b2;
     }
-    @media (max-width: 1200px) {
+
+    /* --- Responsive styles for mobile --- */
+    @media (max-width: 900px) {
       #sidebar {
-        width: 180px;
-        font-size: 0.9em;
+        width: 100px;
+        font-size: 0.75em;
+        margin: 1em 0.2em 1em 0;
+      }
+      #sidebar ul {
+        max-height: 40vh;
+        overflow-y: auto;
+      }
+      #sidebar li {
+        font-size: 1em;
+        padding: 0.5em 0.5em;
       }
       #main-content {
         margin-top: 2em;
       }
       #question {
         font-size: 1.3em;
+        max-width: 98vw;
       }
       #answer {
         font-size: 1em;
+        max-width: 98vw;
       }
       button {
         font-size: 1em;
@@ -143,10 +166,63 @@
         height: auto;
         border-right: none;
         border-bottom: 2px solid #e0e4ef;
-        margin: 0 0 1em 0;
+        margin: 0 0 0.5em 0;
+        font-size: 0.8em;
+        padding: 0.2em 0;
+      }
+      #sidebar ul {
+        max-height: 20vh;
+        overflow-y: auto;
+        display: block;
+      }
+      #sidebar li {
+        display: block;
+        min-width: 0;
+        max-width: none;
+        font-size: 0.95em;
+        padding: 0.4em 0.7em;
+        margin: 0;
+        border-left-width: 3px;
       }
       #main-content {
         margin-top: 1em;
+        width: 100vw;
+        max-width: 100vw;
+        align-items: stretch;
+      }
+      #question, #answer {
+        width: 96vw;
+        max-width: 100vw;
+        font-size: 1.1em;
+        padding: 0.7em 4vw; /* Added side padding for mobile */
+        box-sizing: border-box;
+      }
+      .button-group {
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: stretch;
+      }
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1.1em;
+      }
+    }
+    @media (max-width: 400px) {
+      #question, #answer {
+        font-size: 1em;
+        padding: 0.5em 2vw; /* Slightly less padding for very small screens */
+      }
+      button {
+        font-size: 1em;
+        padding: 0.5em 0.5em;
+      }
+      #sidebar li {
+        font-size: 0.9em;
+        padding: 0.3em 0.3em;
+      }
+      #sidebar ul {
+        max-height: 15vh;
       }
     }
   </style>
@@ -233,7 +309,7 @@
 
     function showQuestion(index) {
       const questionDiv = document.getElementById('question');
-      questionDiv.textContent = qaList[index].question;
+      questionDiv.innerHTML = qaList[index].question;
       document.getElementById('answer').style.display = 'none';
       document.getElementById('showAnswerBtn').disabled = false;
       document.getElementById('answer').innerHTML = '';
