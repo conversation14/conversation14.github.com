@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Q&A</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 2.5em 2em 2em 2em;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    #question {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-bottom: 1.2em;
+      color: #222a3a;
+      min-height: 2.5em;
+    }
+    #answer {
+      margin-top: 1.5em;
+      color: #1a7f37;
+      font-size: 1.1em;
+      background: #eafbe7;
+      border-radius: 8px;
+      padding: 1em;
+      min-height: 2em;
+      transition: opacity 0.2s;
+    }
+    button {
+      padding: 0.7em 1.5em;
+      margin: 0.5em 0.5em 0 0;
+      border: none;
+      border-radius: 6px;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+      box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+    }
+    button:disabled {
+      background: #b6cdfa;
+      cursor: not-allowed;
+    }
+    button#nextQuestionBtn {
+      background: #f59e42;
+    }
+    button#nextQuestionBtn:disabled {
+      background: #f7d6b2;
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.2em 0.5em 1em 0.5em;
+      }
+      #question, #answer {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="question"></div>
+    <button id="showAnswerBtn">Show Answer</button>
+    <button id="nextQuestionBtn">Next Question</button>
+    <div id="answer" style="display:none;"></div>
+  </div>
+  <script>
+    const qaList = [
+        {"question": "Linearly dependent", "answer": "A set of vectors is linearly dependent if at least one vector can be written as a linear combination of the others."},
+        {"question": "Linearly independent", "answer": "A set of vectors is linearly independent if no vector in the set can be expressed as a linear combination of the others."},
+        {"question": "Range", "answer": "The set of all possible output vectors of a linear transformation; also called the image."},
+        {"question": "Kernel", "answer": "The set of all input vectors that are mapped to the zero vector by a linear transformation."},
+        {"question": "Vector space", "answer": "A set of vectors closed under vector addition and scalar multiplication, satisfying certain axioms."},
+        {"question": "Trace", "answer": "The sum of the diagonal elements of a square matrix; equal to the sum of its eigenvalues."},
+        {"question": "Convex combination", "answer": "A linear combination of points where the coefficients are non-negative and sum to one."},
+        {"question": "Affine combination", "answer": "A linear combination of points where the coefficients sum to one (can include negative coefficients)."},
+        {"question": "Rank", "answer": "The dimension of the column space (or row space) of a matrix; number of linearly independent columns."},
+        {"question": "Span", "answer": "The set of all linear combinations of a given set of vectors."},
+        {"question": "Linear hull", "answer": "Another term for the span of a set of vectors."},
+        {"question": "Generating set", "answer": "A set of vectors whose span equals the whole vector space."},
+        {"question": "Uniquely solvable", "answer": "A linear system is uniquely solvable if it has exactly one solution; occurs when the coefficient matrix is invertible."},
+        {"question": "Invertible", "answer": "A square matrix is invertible if there exists another matrix such that their product is the identity matrix."},
+        {"question": "Determinant", "answer": "A scalar value that can be computed from a square matrix; nonzero if and only if the matrix is invertible."},
+        {"question": "Unit root", "answer": "An eigenvalue of a matrix that equals 1 in magnitude; in time series, refers to a root of the characteristic equation on the unit circle."},
+        {"question": "Spec of a matrix", "answer": "The spectrum of a matrix: the set of its eigenvalues."},
+        {"question": "Skew symmetric matrix", "answer": "A square matrix A such that Aᵀ = −A; diagonal entries are all zero."},
+        {"question": "Hessian matrix", "answer": "A square matrix of second-order partial derivatives of a scalar-valued function."},
+        {"question": "Unitary matrix", "answer": "A complex square matrix whose conjugate transpose is its inverse; preserves vector norms."},
+        {"question": "Singular", "answer": "A square matrix with determinant zero; not invertible."},
+        {"question": "Diagonalizable", "answer": "A matrix is diagonalizable if it is similar to a diagonal matrix, typically if it has enough linearly independent eigenvectors."},
+        {"question": "Subspace", "answer": "A subset of a vector space that is itself a vector space under the same operations."},
+        {"question": "Positive definite", "answer": "A symmetric matrix where xᵀAx > 0 for all nonzero vectors x; all eigenvalues are positive."},
+        {"question": "Similar matrix", "answer": "Two matrices A and B are similar if there exists an invertible matrix P such that B = P⁻¹AP."},
+        {"question": "Normal matrix", "answer": "A square matrix that commutes with its conjugate transpose: AA* = A* A."},
+        {"question": "Normed space", "answer": "A vector space equipped with a function (norm) that assigns a length to each vector."},
+        {"question": "Principal minors", "answer": "The determinants of square submatrices obtained by deleting the same rows and columns."},
+        {"question": "Inner product space", "answer": "A vector space with an inner product that defines angles and lengths of vectors."}
+    ];
+
+    let currentIndex = 0;
+
+    function showQuestion(index) {
+      document.getElementById('question').textContent = qaList[index].question;
+      document.getElementById('answer').style.display = 'none';
+      document.getElementById('showAnswerBtn').disabled = false;
+      document.getElementById('answer').textContent = '';
+    }
+
+    document.getElementById('showAnswerBtn').addEventListener('click', function() {
+      document.getElementById('answer').textContent = qaList[currentIndex].answer;
+      document.getElementById('answer').style.display = 'block';
+      this.disabled = true;
+    });
+
+    document.getElementById('nextQuestionBtn').addEventListener('click', function() {
+      currentIndex = (currentIndex + 1) % qaList.length;
+      showQuestion(currentIndex);
+    });
+
+    showQuestion(currentIndex);
+  </script>
+</body>
+</html>
