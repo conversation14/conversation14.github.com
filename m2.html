@@ -17,9 +17,48 @@
       height: 100vh;
       width: 100vw;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
+      flex-direction: row;
+    }
+    #sidebar {
+      width: 320px;
+      max-width: 40vw;
+      height: 90vh;
+      overflow-y: auto;
+      background: none;
+      margin: 2em 2em 2em 0;
+      padding: 0;
+      border-right: 2px solid #e0e4ef;
+    }
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #sidebar li {
+      padding: 0.7em 1em;
+      font-size: 1.1em;
+      color: #3b4252;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: normal;
+      word-break: break-word;
+    }
+    #sidebar li.active {
+      background: #eafbe7;
+      border-left: 4px solid #1a7f37;
+      color: #1a7f37;
+      font-weight: bold;
+    }
+    #main-content {
+      flex: 1;
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 4em;
     }
     #question {
       font-size: 2.5em;
@@ -74,7 +113,14 @@
     button#nextQuestionBtn:disabled {
       background: #f7d6b2;
     }
-    @media (max-width: 900px), (max-height: 900px) {
+    @media (max-width: 1200px) {
+      #sidebar {
+        width: 180px;
+        font-size: 0.9em;
+      }
+      #main-content {
+        margin-top: 2em;
+      }
       #question {
         font-size: 1.3em;
       }
@@ -86,61 +132,137 @@
         padding: 0.7em 1.2em;
       }
     }
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #sidebar {
+        width: 100vw;
+        max-width: 100vw;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid #e0e4ef;
+        margin: 0 0 1em 0;
+      }
+      #main-content {
+        margin-top: 1em;
+      }
+    }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
 </head>
 <body>
+  <nav id="sidebar">
+    <ul id="questionList"></ul>
+  </nav>
+  <div id="main-content">
     <div id="question"></div>
     <div class="button-group">
       <button id="showAnswerBtn">Show Answer</button>
       <button id="nextQuestionBtn">Next Question</button>
     </div>
     <div id="answer" style="display:none;"></div>
+  </div>
   <script>
     const qaList = [
-        {"question": "Linearly dependent", "answer": "A set of vectors is linearly dependent if at least one vector can be written as a linear combination of the others."},
-        {"question": "Linearly independent", "answer": "A set of vectors is linearly independent if no vector in the set can be expressed as a linear combination of the others."},
-        {"question": "Range", "answer": "The set of all possible output vectors of a linear transformation; also called the image."},
-        {"question": "Kernel", "answer": "The set of all input vectors that are mapped to the zero vector by a linear transformation."},
-        {"question": "Vector space", "answer": "A set of vectors closed under vector addition and scalar multiplication, satisfying certain axioms."},
-        {"question": "Trace", "answer": "The sum of the diagonal elements of a square matrix; equal to the sum of its eigenvalues."},
-        {"question": "Convex combination", "answer": "A linear combination of points where the coefficients are non-negative and sum to one."},
-        {"question": "Affine combination", "answer": "A linear combination of points where the coefficients sum to one (can include negative coefficients)."},
-        {"question": "Rank", "answer": "The dimension of the column space (or row space) of a matrix; number of linearly independent columns."},
-        {"question": "Span", "answer": "The set of all linear combinations of a given set of vectors."},
-        {"question": "Linear hull", "answer": "Another term for the span of a set of vectors."},
-        {"question": "Generating set", "answer": "A set of vectors whose span equals the whole vector space."},
-        {"question": "Uniquely solvable", "answer": "A linear system is uniquely solvable if it has exactly one solution; occurs when the coefficient matrix is invertible."},
-        {"question": "Invertible", "answer": "A square matrix is invertible if there exists another matrix such that their product is the identity matrix."},
-        {"question": "Determinant", "answer": "A scalar value that can be computed from a square matrix; nonzero if and only if the matrix is invertible."},
-        {"question": "Unit root", "answer": "An eigenvalue of a matrix that equals 1 in magnitude; in time series, refers to a root of the characteristic equation on the unit circle."},
-        {"question": "Spec of a matrix", "answer": "The spectrum of a matrix: the set of its eigenvalues."},
-        {"question": "Skew symmetric matrix", "answer": "A square matrix A such that Aᵀ = −A; diagonal entries are all zero."},
-        {"question": "Hessian matrix", "answer": "A square matrix of second-order partial derivatives of a scalar-valued function."},
-        {"question": "Unitary matrix", "answer": "A complex square matrix whose conjugate transpose is its inverse; preserves vector norms."},
-        {"question": "Singular", "answer": "A square matrix with determinant zero; not invertible."},
-        {"question": "Diagonalizable", "answer": "A matrix is diagonalizable if it is similar to a diagonal matrix, typically if it has enough linearly independent eigenvectors."},
-        {"question": "Subspace", "answer": "A subset of a vector space that is itself a vector space under the same operations."},
-        {"question": "Positive definite", "answer": "A symmetric matrix where xᵀAx > 0 for all nonzero vectors x; all eigenvalues are positive."},
-        {"question": "Similar matrix", "answer": "Two matrices A and B are similar if there exists an invertible matrix P such that B = P⁻¹AP."},
-        {"question": "Normal matrix", "answer": "A square matrix that commutes with its conjugate transpose: AA* = A* A."},
-        {"question": "Normed space", "answer": "A vector space equipped with a function (norm) that assigns a length to each vector."},
-        {"question": "Principal minors", "answer": "The determinants of square submatrices obtained by deleting the same rows and columns."},
-        {"question": "Inner product space", "answer": "A vector space with an inner product that defines angles and lengths of vectors."}
+      {"question": "Linearly dependent", "answer": "A set of vectors $\\{v_1, \\, v_2, \\, \\dots, v_k\\}$ is linearly dependent if there exist scalars, not all zero, such that $a_1 v_1 + a_2 v_2 + \\dots + a_k v_k = 0$."},
+      {"question": "Linearly independent", "answer": "A set of vectors is linearly independent if the equation $a_1 v_1 + \\dots + a_k v_k = 0$ implies $a_1 = \\dots = a_k = 0$."},
+      {"question": "Range", "answer": "The set of all possible outputs of a linear transformation $T: V \\to W$, denoted $\\operatorname{range}(T) = \\{T(v) : v \\in V\\}$."},
+      {"question": "Kernel", "answer": "The set of all vectors mapped to zero: $\\ker(T) = \\{ v \\in V : T(v) = 0 \\}$."},
+      {"question": "Vector space", "answer": "A set $V$ over a field $\\mathbb{F}$ closed under addition and scalar multiplication, satisfying 8 vector space axioms."},
+      {"question": "Trace", "answer": "For a square matrix $A$, $\\operatorname{tr}(A) = \\sum_{i=1}^n a_{ii}$; equals the sum of eigenvalues (counted with algebraic multiplicity)."},
+      {"question": "Convex combination", "answer": "A linear combination $a_1 v_1 + \\dots + a_k v_k$ where $a_i \\ge 0$ and $\\sum a_i = 1$."},
+      {"question": "Affine combination", "answer": "A linear combination $a_1 v_1 + \\dots + a_k v_k$ where $\\sum a_i = 1$ (coefficients may be negative)."},
+      {"question": "Rank", "answer": "Dimension of the column space of $A$; equals the number of nonzero singular values in its SVD."},
+      {"question": "Span", "answer": "The set of all linear combinations of a given set of vectors."},
+      {"question": "Generating set", "answer": "A set of vectors whose span is the entire vector space."},
+      {"question": "Uniquely solvable", "answer": "A system $A x = b$ is uniquely solvable if $A$ is invertible; equivalently, $\\det(A) \\neq 0$."},
+      {"question": "Invertible", "answer": "A square matrix $A$ is invertible if there exists $A^{-1}$ such that $A A^{-1} = I$; all eigenvalues are nonzero."},
+      {"question": "Determinant", "answer": "A scalar $\\det(A)$ equal to the product of eigenvalues (counted with multiplicity); zero iff $A$ is singular."},
+      {"question": "Unit root", "answer": "An eigenvalue $\\lambda$ with $|\\lambda| = 1$."},
+      {"question": "Spectrum", "answer": "The set of all eigenvalues of $A$, denoted $\\sigma(A)$."},
+      {"question": "Skew symmetric matrix", "answer": "A matrix $A$ with $A^T = -A$; all eigenvalues are purely imaginary or zero."},
+      {"question": "Hessian matrix", "answer": "For $f: \\mathbb{R}^n \\to \\mathbb{R}$, the Hessian $H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}$; symmetric if second derivatives are continuous."},
+      {"question": "Unitary matrix", "answer": "A complex matrix $U$ with $U^* U = I$; eigenvalues satisfy $|\\lambda| = 1$."},
+      {"question": "Singular", "answer": "A matrix with $\\det(A) = 0$; has at least one eigenvalue $\\lambda = 0$."},
+      {"question": "Diagonalizable", "answer": "A matrix $A$ is diagonalizable if there exists invertible $P$ such that $P^{-1} A P = D$ where $D$ is diagonal."},
+      {"question": "Diagonalization", "answer": "The process of finding $P$ and $D$ such that $A = P D P^{-1}$, where columns of $P$ are eigenvectors and $D$ has eigenvalues on its diagonal."},
+      {"question": "Orthogonal diagonalization", "answer": "A diagonalization where $P$ is orthogonal ($P^T P = I$); possible for real symmetric matrices."},
+      {"question": "Spectral decomposition", "answer": "If $A$ is diagonalizable, $A = \\sum_{i} \\lambda_i P_i$ where $P_i$ are projection matrices onto eigenspaces."},
+      {"question": "Eigenspace", "answer": "For eigenvalue $\\lambda$, the eigenspace is $E_\\lambda = \\{v \\neq 0 : A v = \\lambda v\\} \\cup \\{0\\}$."},
+      {"question": "Algebraic multiplicity", "answer": "The multiplicity of $\\lambda$ as a root of $\\det(A - \\lambda I) = 0$."},
+      {"question": "Geometric multiplicity", "answer": "The dimension of the eigenspace corresponding to $\\lambda$; satisfies $1 \\le g \\le m_a$."},
+      {"question": "Jordan form", "answer": "A block-diagonal form $J$ similar to $A$, with Jordan blocks for each eigenvalue."},
+      {"question": "Minimal polynomial", "answer": "The monic polynomial $m_A(x)$ of least degree such that $m_A(A) = 0$."},
+      {"question": "Spectral theorem", "answer": "A real symmetric (or complex normal) matrix can be written $A = Q \\Lambda Q^T$ (or $A = U \\Lambda U^*$) with $Q, U$ orthogonal/unitary."},
+      {"question": "Singular Value Decomposition", "answer": "Any $A \\in \\mathbb{R}^{m \\times n}$ can be written as $A = U \\Sigma V^T$ with $U, V$ orthogonal and $\\Sigma$ diagonal with nonnegative singular values."},
+      {"question": "Schur decomposition", "answer": "Any $A \\in \\mathbb{C}^{n \\times n}$ can be written $A = Q T Q^*$ with $Q$ unitary and $T$ upper triangular; $T$'s diagonal entries are eigenvalues of $A$."},
+      {"question": "Subspace", "answer": "A subset of $V$ that is itself a vector space under the same operations."},
+      {"question": "Positive definite", "answer": "A symmetric matrix $A$ where $x^T A x > 0$ for all $x \\neq 0$; all eigenvalues are positive."},
+      {"question": "Similar matrices", "answer": "Matrices $A$ and $B$ are similar if $B = P^{-1} A P$; they have the same eigenvalues."},
+      {"question": "Normal matrix", "answer": "A matrix satisfying $A A^* = A^* A$; unitarily diagonalizable."},
+      {"question": "Normed space", "answer": "A vector space with a norm $\\|\\cdot\\|: V \\to \\mathbb{R}$ assigning lengths to vectors."},
+      {"question": "Principal minors", "answer": "Determinants of submatrices obtained by deleting matching sets of rows and columns."},
+      {"question": "Inner product space", "answer": "A vector space with an inner product $\\langle u, v \\rangle$ defining lengths and angles."}
     ];
 
     let currentIndex = 0;
 
+    // Populate sidebar list
+    const questionList = document.getElementById('questionList');
+    qaList.forEach((item, idx) => {
+      const li = document.createElement('li');
+      li.textContent = item.question;
+      li.addEventListener('click', () => {
+        currentIndex = idx;
+        showQuestion(currentIndex);
+        updateSidebarActive();
+      });
+      questionList.appendChild(li);
+    });
+
+    function updateSidebarActive() {
+      const lis = questionList.querySelectorAll('li');
+      lis.forEach((li, idx) => {
+        li.classList.toggle('active', idx === currentIndex);
+      });
+    }
+
     function showQuestion(index) {
-      document.getElementById('question').textContent = qaList[index].question;
+      const questionDiv = document.getElementById('question');
+      questionDiv.textContent = qaList[index].question;
       document.getElementById('answer').style.display = 'none';
       document.getElementById('showAnswerBtn').disabled = false;
-      document.getElementById('answer').textContent = '';
+      document.getElementById('answer').innerHTML = '';
+      updateSidebarActive();
+      // Render LaTeX in question
+      if (window.renderMathInElement) {
+        renderMathInElement(questionDiv, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      }
     }
 
     document.getElementById('showAnswerBtn').addEventListener('click', function() {
-      document.getElementById('answer').textContent = qaList[currentIndex].answer;
-      document.getElementById('answer').style.display = 'block';
+      const answerDiv = document.getElementById('answer');
+      answerDiv.innerHTML = qaList[currentIndex].answer;
+      answerDiv.style.display = 'block';
       this.disabled = true;
+      // Render LaTeX in answer
+      if (window.renderMathInElement) {
+        renderMathInElement(answerDiv, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      }
     });
 
     document.getElementById('nextQuestionBtn').addEventListener('click', function() {
@@ -148,6 +270,7 @@
       showQuestion(currentIndex);
     });
 
+    // Initial render
     showQuestion(currentIndex);
   </script>
 </body>
